@@ -38,11 +38,12 @@ public class dodatkowe1 {
 
     }
     @Test
-    public void testProdSearch() {
+    public void testProdSearch() throws InterruptedException {
          // Znajdź element wprowadzania tekstu na podstawie jego nazwy
         WebElement element = driver.findElement(By.name("s"));
         // Wyczyść teskst zapisany w elemencie
         element.clear();
+        Thread.sleep(5000);
 
         // Wpisz informacje do wyszukania
         //element.sendKeys("Mug");
