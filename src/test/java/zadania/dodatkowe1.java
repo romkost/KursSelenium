@@ -58,3 +58,12 @@ public class dodatkowe1 {
         //driver.quit();
     }
 }
+
+/*
+
+Pierwszym zadaniem będzie przygotowanie skryptu, który zwery kuje funkcjonalność wyszukiwania
+produktów w sklepie. Celem naszego testu będzie uniknięcie tzw. paradoksu pestycydów - czyli
+wykorzystywania tych samych danych podczas testu. Dlatego też ważne będzie, aby wyszukiwać
+produkt w sposób losowy.
+
+ */

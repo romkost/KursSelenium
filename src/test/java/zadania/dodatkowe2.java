@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 import org.junit.*;
 import java.util.Random;
+import java.util.Formatter.*;
 
 public class dodatkowe2 {
 
@@ -55,8 +56,7 @@ public class dodatkowe2 {
             selectFirstName = rfnFemale % firstnameFemaleT.length;
             selectedFirstName = firstnameFemaleT[selectFirstName];
             gender = 2;
-        }
-        else {
+        } else {
             selectFirstName = rfnMale % firstnameMaleT.length;
             selectedFirstName = firstnameMaleT[selectFirstName];
             gender = 1;
@@ -69,58 +69,102 @@ public class dodatkowe2 {
         selectedEmail = selectedFirstName + emailSpecialT[selectEmail] + selectedLastName + "@gmail.com";
 
 
-        // Znajdź element wprowadzania tekstu na podstawie jego nazwy
+
         WebElement imie = driver.findElement(By.name("firstname"));
-        imie.clear();
-        imie.sendKeys(selectedFirstName);
-        Thread.sleep(1000);
-        System.out.println("Imie class atrrr:" + imie.getAttribute("class"));
-        System.out.println("Imie getText:" + imie.getText());
-
-
-
+        System.out.println("TagName imie: " + imie.getTagName());
+        System.out.println("Enabled imie: " + imie.isEnabled());
+        System.out.println("Displayed imie: " + imie.isDisplayed());
+        System.out.println("Atrybut imie: " + imie.getAttribute("required"));
+        Thread.sleep(500);
+        if (imie.isEnabled() && imie.isDisplayed()) {
+            imie.clear();
+            imie.sendKeys(selectedFirstName);
+        } else {
+            Assert.fail();
+        }
+        //System.out.println("getText imie: " + imie.getText());
 
 
         WebElement nazwisko = driver.findElement(By.name("lastname"));
-        nazwisko.clear();
-        nazwisko.sendKeys(selectedLastName);
-        Thread.sleep(1000);
+        System.out.println("TagName nazwisko: " + nazwisko.getTagName());
+        //System.out.println("Enabled nazwisko: " + nazwisko.isEnabled());
+        //System.out.println("Displayed nazwisko: " + nazwisko.isDisplayed());
+        System.out.println("Atrybut nazwisko: " + nazwisko.getAttribute("required"));
+        Thread.sleep(500);
+        if (nazwisko.isEnabled() && nazwisko.isDisplayed()) {
+            nazwisko.clear();
+            nazwisko.sendKeys(selectedLastName);
+        } else {
+            Assert.fail();
+        }
+        //System.out.println("getText nazwisko: " + nazwisko.getText());
+
+
+        WebElement email = driver.findElement(By.name("email"));
+        //WebElement danger = driver.findElement(By.className("alert-danger"));
+        System.out.println("TagName email: " + email.getTagName());
+        //System.out.println("Enabled email: " + email.isEnabled());
+        //System.out.println("Displayed email: " + email.isDisplayed());
+        System.out.println("Atrybut email: " + email.getAttribute("required"));
+       // System.out.println("getText danger: " + danger.getText());
+        Thread.sleep(500);
+        if (email.isEnabled() && email.isDisplayed()) {
+            email.clear();
+            email.sendKeys(selectedEmail);
+        } else {
+            Assert.fail();
+        }
+        //System.out.println("getText email: " + email.getText());
+
+        String pass = "!" + selectedLastName + "_" + selectFirstName;
+
+        WebElement haslo = driver.findElement(By.name("password"));
+        //WebElement danger = driver.findElement(By.className("alert-danger"));
+        System.out.println("TagName haslo: " + haslo.getTagName());
+        //System.out.println("Enabled haslo: " + haslo.isEnabled());
+        //System.out.println("Displayed haslo: " + haslo.isDisplayed());
+        System.out.println("Atrybut haslo: " + haslo.getAttribute("required"));
+        // System.out.println("getText danger: " + danger.getText());
+        Thread.sleep(500);
+        if (haslo.isEnabled() && haslo.isDisplayed()) {
+            haslo.clear();
+            haslo.sendKeys(pass);
+        } else {
+            Assert.fail();
+        }
+        //System.out.println("getText haslo: " + haslo.getText());
+
+        WebElement urodziny = driver.findElement(By.name("birthday"));
+        System.out.println("TagName urodziny: " + urodziny.getTagName());
+        //System.out.println("Enabled urodziny: " + urodziny.isEnabled());
+        //System.out.println("Displayed urodziny: " + urodziny.isDisplayed());
+        //System.out.println("getText urodziny: " + urodziny.getText());
+        System.out.println("Atrybut urodziny: " + urodziny.getAttribute("required"));
+
+//Wylaczone, bo test z failem
+       // Thread.sleep(500);
+       // if(urodziny.isEnabled() && urodziny.isDisplayed()) {
+
+
+            //if (urodziny.getAttribute("required").equals(true)) {
+            //urodziny.clear();
+            //urodziny.sendKeys("06/24/1977");
+            //} else {
+                //throw new NullPointerException();
+
+            //}
 
 
         String expression = (gender==1) ? "//*[@value='1']" : "//*[@value='2']";
-
-
         WebElement plec = driver.findElement(By.xpath(expression));
-       // WebElement plec = driver.findElement(By.xpath("//*[@value='gender']"));
-        //plec.clear();
         plec.click();
-       // WebElement urodziny = driver.findElement(By.xpath("//*[@id=\"dob\"]"));
-        Thread.sleep(2000);
 
-        WebElement email = driver.findElement(By.name("email"));
-        email.clear();
-        email.sendKeys(selectedEmail);
-        Thread.sleep(4000);
+        //save
+        WebElement save = driver.findElement(By.className("btn-primary"));
+        save.click();
+//ALE TO BYLO PODLE :)
 
 
-
-
-
-
-       // System.out.println(selectedEmail);
-
-
-
-
-
-
-
-
-
-
-
-
-        //element.submit();
     }
     @After
     public void tearDown() throws Exception {
@@ -131,7 +175,7 @@ public class dodatkowe2 {
 
 /*
 Klika podpowiedzi:
-• Skrypt powinien mieć możliwość zde niowania dowolnej liczby użytkowników, którą chcemy
+• Skrypt powinien mieć możliwość zdefiniowania dowolnej liczby użytkowników, którą chcemy
 utworzyć.
 •
 • Zwróć uwagę, że: The email is already used, please choose another one or sign in.
