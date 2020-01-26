@@ -15,16 +15,7 @@ public class zad11 {
     private WebDriver driver;
 
 
-    /*
-    Zadanie 11 - funkcje
-Rozbuduj swój kod z zadania 10 o następujące elementy:
-Przed każdym elementem sprawdź czy jest on widoczny lub dostępny aby wpisać do niego tekst.
 
-Przed każdym elementem odczytaj jego nazwę a następnie wyświetl ją w konsoli w formacie -
-nazwa pola : wpisywana wartość
-
-
-     */
 
 
 
@@ -46,7 +37,6 @@ nazwa pola : wpisywana wartość
         System.out.println("Displayed imie: " + imie.isDisplayed());
         System.out.println("getText imie: " + imie.getText());
         System.out.println("Atrybut imie: " + imie.getAttribute("id"));
-
 
         Thread.sleep(500);
         if(imie.isEnabled() && imie.isDisplayed()) {
@@ -126,35 +116,110 @@ nazwa pola : wpisywana wartość
         }
 
 
-
-
-
       //email
       WebElement eadres = driver.findElement(By.id("email"));
-      eadres.clear();
-      eadres.sendKeys("karol.kowalski@mailinator.com");
+        System.out.println("TagName eadres: " + eadres.getTagName());
+        System.out.println("Enabled eadres: " + eadres.isEnabled());
+        System.out.println("Displayed eadres: " + eadres.isDisplayed());
+        System.out.println("getText eadres: " + eadres.getText());
+        System.out.println("Atrybut eadres: " + eadres.getAttribute("name"));
+
+        Thread.sleep(500);
+        if(eadres.isEnabled() && eadres.isDisplayed()) {
+            eadres.clear();
+            eadres.sendKeys("karol.kowalski@mailinator.com");
+        }else {
+            Assert.fail();
+        }
+
 
       //haslo
       WebElement haslo = driver.findElement(By.id("password"));
-      haslo.clear();
-      haslo.sendKeys("Pass123");
+        System.out.println("TagName haslo: " + haslo.getTagName());
+        System.out.println("Enabled haslo: " + haslo.isEnabled());
+        System.out.println("Displayed haslo: " + haslo.isDisplayed());
+        System.out.println("getText haslo: " + haslo.getText());
+        System.out.println("Atrybut haslo: " + haslo.getAttribute("name"));
+
+        Thread.sleep(500);
+        if(haslo.isEnabled() && haslo.isDisplayed()) {
+            haslo.clear();
+            haslo.sendKeys("Pass123");
+        }else {
+            Assert.fail();
+        }
+
 
       //firma
       WebElement firma = driver.findElement(By.id("company"));
-      firma.clear();
-      firma.sendKeys("Coders Lab");
+        System.out.println("TagName firma: " + firma.getTagName());
+        System.out.println("Enabled firma: " + firma.isEnabled());
+        System.out.println("Displayed firma: " + firma.isDisplayed());
+        System.out.println("getText firma: " + firma.getText());
+        System.out.println("Atrybut firma: " + firma.getAttribute("name"));
+
+        Thread.sleep(500);
+        if(firma.isEnabled() && firma.isDisplayed()) {
+            firma.clear();
+            firma.sendKeys("Coders Lab");
+        }else {
+            Assert.fail();
+        }
+
 
       //posada
       WebElement posada = driver.findElement(By.id("role"));
-      posada.sendKeys("QA");
+        System.out.println("TagName posada: " + posada.getTagName());
+        System.out.println("Enabled posada: " + posada.isEnabled());
+        System.out.println("Displayed posada: " + posada.isDisplayed());
+        System.out.println("getText posada: " + posada.getText());
+        System.out.println("Atrybut posada: " + posada.getAttribute("name"));
+
+        Thread.sleep(500);
+        if(posada.isEnabled() && posada.isDisplayed()) {
+        //if(posada.isEnabled()) {
+            //if(posada.isDisplayed()) {
+            //posada.clear(); tutaj niefajnie stosowac clear
+            posada.sendKeys("QA");
+
+        }else {
+            Assert.fail();
+        }
+
 
       //komentarz
       WebElement komentarz = driver.findElement(By.id("comment"));
-      komentarz.clear();
-      komentarz.sendKeys("To jest mój pierwszy automat testowy");
+        System.out.println("TagName komentarz: " + komentarz.getTagName());
+        System.out.println("Enabled komentarz: " + komentarz.isEnabled());
+        System.out.println("Displayed komentarz: " + komentarz.isDisplayed());
+        System.out.println("getText komentarz: " + komentarz.getText());
+        System.out.println("Atrybut komentarz: " + komentarz.getAttribute("name"));
+
+        Thread.sleep(500);
+        if(komentarz.isEnabled() && komentarz.isDisplayed()) {
+            komentarz.clear();
+            komentarz.sendKeys("To jest mój pierwszy automat testowy");
+        }else {
+            Assert.fail();
+        }
+
 
       //wyslij
-      driver.findElement(By.id("submit")).click();
+      WebElement wyslij = driver.findElement(By.id("submit"));
+        System.out.println("TagName wyslij: " + wyslij.getTagName());
+        System.out.println("Enabled wyslij: " + wyslij.isEnabled());
+        System.out.println("Displayed wyslij: " + wyslij.isDisplayed());
+        System.out.println("getText wyslij: " + wyslij.getText());
+        System.out.println("Atrybut wyslij: " + wyslij.getAttribute("name"));
+
+        Thread.sleep(500);
+        if(wyslij.isEnabled() && wyslij.isDisplayed()) {
+            wyslij.click();
+        }else {
+            Assert.fail();
+        }
+
+
 
 
     }
@@ -165,3 +230,13 @@ nazwa pola : wpisywana wartość
     }
 }
 
+    /*
+    Zadanie 11 - funkcje
+Rozbuduj swój kod z zadania 10 o następujące elementy:
+Przed każdym elementem sprawdź czy jest on widoczny lub dostępny aby wpisać do niego tekst.
+
+Przed każdym elementem odczytaj jego nazwę a następnie wyświetl ją w konsoli w formacie -
+nazwa pola : wpisywana wartość
+
+
+     */
