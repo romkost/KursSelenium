@@ -1,4 +1,4 @@
-package cucumber.test;
+package cucumber.test.zad14;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

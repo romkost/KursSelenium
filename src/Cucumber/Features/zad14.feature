@@ -1,13 +1,27 @@
-Feature: Zakladanie konta
+Feature: Register account
   Scenario Outline:
-    Given an open browser with https://tester.codersguru.pl/login
-    When a keyword <iadres>is entered in input fieldadres> is entered in input field
-    And a keyword <imie> is entered in input field
-    And a keyword <nazwisko> is entered in input field
-    And a keyword <haslo> is entered in input field
-    And a keyword <kod> is entered in input field
-    And a keyword <ulica> is entered in input field
-    And a keyword <numerd> is entered in input field
+    Given user navigates to "<url>"
+    When user clicks on the Zarejestruj sie button
+    And user enters the email "<iadres>"
+    And user enters the first name "<imie>"
+    And user enters the last name "<nazwisko>"
+    And user enters the password "<haslo>"
+    And user confirm password "<haslo>"
+    And user enters the city "<miasto>"
+    And user enters the postcode "<kod>"
+    And user enters the street "<ulica>"
+    And user enters the flat "<numerd>"
+    And user accept rules
+    And user clicks Zarejestruj button
+    Then user sees confirm page "<url2>"
+
+
     Examples:
-      |iadres       |imie |nazwisko |haslo    |kod                        |ulica    |numerd |
-      |olek@lolek.pl|Olo  |Bolo     |ZuluGula |[0-1][0-2]-[0-2][0-5][0-2] |Cystersow|14     |
+      |url                                |iadres       |imie |nazwisko |haslo   |miasto   |kod   |ulica |numerd|url2                                           |
+      |https://tester.codersguru.pl/login |olo9@o2.pl   |Olo  |Bolo     |ZuluGula|Wloclawek|87-800|Polna |71A   |https://tester.codersguru.pl/register/confirmed|
+      |https://tester.codersguru.pl/login |romkost2@o2.pl|Roman|Kostuniak|123qwe  |Wloclawek|87-800|Zytnia|71A   |https://tester.codersguru.pl/register/confirmed|
+
+  #//Z wykorzystaniem Cucumber przygotuj test, który będzie zakładał konto na stronie
+  #// https://tester.codersguru.pl/login
+  #// https://www.mcdonalds.com/us/en-us/subscription.html#signin - to dla orlow
+
